@@ -14,6 +14,6 @@ Then open http://localhost:3000.
 
 ## Deploy
 
-Every push to `main` deploys the `public/` folder to GitHub Pages via `.github/workflows/pages.yml`.
+GitHub Pages serves the `docs/` folder on `main` (Settings → Pages → Deploy from a branch → `main` / `/docs`).
 
 Sound effects are CC0; see `CREDITS.md`.
