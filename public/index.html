@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#241a42" />
+    <meta
+      name="description"
+      content="A playful, keyboard-ready soundboard for openly licensed retro game-inspired effects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>SoundByte — Retro Soundboard</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#cue-deck">Skip to sound buttons</a>
+
+    <main class="page-shell">
+      <section class="cabinet" aria-labelledby="page-title">
+        <header class="marquee">
+          <div class="brand-lockup" aria-label="SoundByte Retro Soundboard">
+            <span class="brand-sparkle" aria-hidden="true">✦</span>
+            <p class="eyebrow">OPEN ARCADE AUDIO</p>
+            <h1 id="page-title">SOUND<span>BYTE</span></h1>
+          </div>
+          <p class="marquee-copy">Tap a tile. Wake the arcade.</p>
+          <div class="credit-chip" aria-label="All included sounds are CC0 licensed">
+            <span aria-hidden="true">◎</span> CC0 SFX
+          </div>
+        </header>
+
+        <section class="status-strip" aria-label="Playback status">
+          <span class="status-label"><span class="status-dot" aria-hidden="true"></span>NOW PLAYING</span>
+          <output id="now-playing" class="now-playing" aria-live="polite">Ready for a high score</output>
+          <span id="hotkey-hint" class="hotkey-hint">Press 1–6</span>
+        </section>
+
+        <div class="cabinet-body">
+          <section id="cue-deck" class="cue-deck" aria-labelledby="cue-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">SOUND DECK</p>
+                <h2 id="cue-title">Choose your cue</h2>
+              </div>
+              <p>Tap, click, or hit the matching key.</p>
+            </div>
+
+            <div class="cue-field" aria-label="Retro sound effects">
+              <button class="cue-tile cue-pink" type="button" data-cue="coin-drop">
+                <span class="cue-index">01</span>
+                <span class="cue-icon" aria-hidden="true">◎</span>
+                <span class="cue-name">Coin<br />Drop</span>
+                <kbd>1</kbd>
+                <span class="cue-action">PLAY</span>
+              </button>
+
+              <button class="cue-tile cue-aqua tile-offset" type="button" data-cue="coin-burst">
+                <span class="cue-index">02</span>
+                <span class="cue-icon" aria-hidden="true">✹</span>
+                <span class="cue-name">Coin<br />Burst</span>
+                <kbd>2</kbd>
+                <span class="cue-action">PLAY</span>
+              </button>
+
+              <button class="cue-tile cue-lemon" type="button" data-cue="cursor">
+                <span class="cue-index">03</span>
+                <span class="cue-icon" aria-hidden="true">↗</span>
+                <span class="cue-name">Cursor<br />Zip</span>
+                <kbd>3</kbd>
+                <span class="cue-action">PLAY</span>
+              </button>
+
+              <button class="cue-tile cue-lilac tile-offset" type="button" data-cue="confirm">
+                <span class="cue-index">04</span>
+                <span class="cue-icon" aria-hidden="true">✓</span>
+                <span class="cue-name">Level<br />Clear</span>
+                <kbd>4</kbd>
+                <span class="cue-action">PLAY</span>
+              </button>
+
+              <button class="cue-tile cue-coral" type="button" data-cue="blast">
+                <span class="cue-index">05</span>
+                <span class="cue-icon" aria-hidden="true">✦</span>
+                <span class="cue-name">Arcade<br />Blast</span>
+                <kbd>5</kbd>
+                <span class="cue-action">PLAY</span>
+              </button>
+
+              <button class="cue-tile cue-blue tile-offset" type="button" data-cue="alert">
+                <span class="cue-index">06</span>
+                <span class="cue-icon" aria-hidden="true">!</span>
+                <span class="cue-name">Alert<br />Loop</span>
+                <kbd>6</kbd>
+                <span class="cue-action">PLAY</span>
+              </button>
+            </div>
+          </section>
+
+          <aside class="utility-rack" aria-label="Playback controls and hotkeys">
+            <section class="control-panel" aria-labelledby="controls-title">
+              <p class="eyebrow">MIXER</p>
+              <h2 id="controls-title">Quick controls</h2>
+
+              <div class="transport-row">
+                <button id="stop-button" class="stop-button" type="button" disabled>
+                  <span aria-hidden="true">■</span> Stop
+                </button>
+                <button id="mute-button" class="mute-button" type="button" aria-pressed="false">
+                  <span class="mute-icon" aria-hidden="true">◖</span>
+                  <span class="mute-label">Mute</span>
+                </button>
+              </div>
+
+              <label class="volume-control" for="volume-slider">
+                <span>Volume</span>
+                <output id="volume-value">80%</output>
+                <input id="volume-slider" type="range" min="0" max="100" value="80" aria-describedby="volume-value" />
+              </label>
+            </section>
+
+            <section class="hotkey-card" aria-labelledby="hotkeys-title">
+              <div class="card-title-row">
+                <div>
+                  <p class="eyebrow">KEYBOARD MAP</p>
+                  <h2 id="hotkeys-title">Hotkeys</h2>
+                </div>
+                <span class="key-burst" aria-hidden="true">✦</span>
+              </div>
+              <dl class="hotkey-list">
+                <div><dt><kbd>1</kbd></dt><dd>Coin Drop</dd></div>
+                <div><dt><kbd>2</kbd></dt><dd>Coin Burst</dd></div>
+                <div><dt><kbd>3</kbd></dt><dd>Cursor Zip</dd></div>
+                <div><dt><kbd>4</kbd></dt><dd>Level Clear</dd></div>
+                <div><dt><kbd>5</kbd></dt><dd>Arcade Blast</dd></div>
+                <div><dt><kbd>6</kbd></dt><dd>Alert Loop</dd></div>
+              </dl>
+            </section>
+          </aside>
+        </div>
+
+        <footer class="cabinet-footer">
+          <section class="license-note" aria-labelledby="license-title">
+            <span class="license-mark" aria-hidden="true">CC0</span>
+            <div>
+              <h2 id="license-title">Open sound, clear credit</h2>
+              <p>
+                Included effects are CC0 from Juhani Junkala’s 512 Sound Effects (8-bit style) collection on
+                <a href="https://opengameart.org/content/512-sound-effects-8-bit-style" target="_blank" rel="noreferrer">OpenGameArt</a>.
+                Use, remix, and share freely.
+              </p>
+            </div>
+          </section>
+          <a class="source-link" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">
+            CC0 1.0 <span aria-hidden="true">↗</span>
+          </a>
+        </footer>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
